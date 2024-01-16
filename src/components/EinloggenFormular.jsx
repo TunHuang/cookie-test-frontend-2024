@@ -21,9 +21,9 @@ const EinloggenFormular = ({setEingeloggt}) => {
       if (!res.ok) {
         setEingeloggt(false);
       } else {
-        setEingeloggt(true);
         const data = await res.json();
         console.log(data);
+        setEingeloggt(true);
         
       }
       
