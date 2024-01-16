@@ -9,7 +9,8 @@ const EinloggenFormular = ({setEingeloggt}) => {
         userName: event.target.elements.userName.value,
         password: event.target.elements.password.value
       };
-      const res = await fetch('http://localhost:4000/login', {
+      const url = import.meta.env.VITE_SERVER ?? 'http://localhost:4000';
+      const res = await fetch(url + '/login', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'

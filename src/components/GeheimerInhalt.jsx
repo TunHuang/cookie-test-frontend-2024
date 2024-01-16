@@ -6,7 +6,8 @@ const GeheimerInhalt = ({setEingeloggt}) => {
   useEffect(() => {
     const fetchWithCookie = async () => {
       try {
-        const res = await fetch('http://localhost:4000/secret', {credentials: 'include'});
+        const url = import.meta.env.VITE_SERVER ?? 'http://localhost:4000';
+        const res = await fetch(url + '/secret', {credentials: 'include'});
         if (!res.ok) {
           setEingeloggt(false);
         } else {
@@ -25,7 +26,8 @@ const GeheimerInhalt = ({setEingeloggt}) => {
   const logoutHandler = async (event) => {
     try {
       event.preventDefault();
-      const res = await fetch('http://localhost:4000/logout', {
+      const url = import.meta.env.VITE_SERVER ?? 'http://localhost:4000';
+      const res = await fetch(url + '/logout', {
         credentials: 'include',
         method: 'POST'
       });
