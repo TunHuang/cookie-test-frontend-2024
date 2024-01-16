@@ -23,8 +23,9 @@ const EinloggenFormular = ({setEingeloggt}) => {
       } else {
         const data = await res.json();
         console.log(data);
-        setEingeloggt(true);
-        
+        setTimeout(() => {
+          setEingeloggt(true);
+        }, 3000);
       }
       
     } catch (err) {
